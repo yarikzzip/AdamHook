@@ -10,11 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Memory.Win64;
 using Memory.Utils;
+using System.Security.Permissions;
+using System.Runtime.InteropServices;
 
 namespace Testicles
 {
     public partial class Form1 : Form
     {
+      
         public Form1()
         {
             InitializeComponent();
@@ -22,13 +25,22 @@ namespace Testicles
 
         ulong targetAddrTS;
         ulong baseAddrFOW, baseAddrDBG, baseAddrAT;
+        ulong StartGame;
         MemoryHelper64 helper;
+
+
+
+       
         private void Form1_Load(object sender, EventArgs e)
         {
             Process p = Process.GetProcessesByName("hoi4").FirstOrDefault();
             if (p == null) return;
 
             helper = new MemoryHelper64(p);
+            
+
+
+            
 
             // getting addresses for FOW(0x24C945A), tagswitch TS(0x25E9D00) (0xE40), debug DBG(0x25E9829) and allowtraits AT(0x24C9438)
 
@@ -51,15 +63,10 @@ namespace Testicles
             baseAddrDBG = helper.GetBaseAddress(0x25E9829);
 
 
-            //DYNAMIC LABELS
-            label1.Text = helper.ReadMemory<Int32>(targetAddrTS).ToString();
-            label4.Text = helper.ReadMemory<Byte>(baseAddrFOW).ToString();
-            label5.Text = helper.ReadMemory<Byte>(baseAddrAT).ToString();
-            label6.Text = helper.ReadMemory<Byte>(baseAddrDBG).ToString();
-            
-            //MANUAL LABELS
-            label2.Text = "Current Country ID: ";
-            label3.Text = "Enter country ID and press tagswitch to change countries";
+            //Pain. Memory address is for 1.10.8, Figuring out 1.12 still :(
+            //StartGame = helper.GetBaseAddress(0xEBD230);
+
+
             timer1.Start();
         }
 
@@ -69,10 +76,45 @@ namespace Testicles
         //Refresh to see new memory value
         private void timer1_Tick_1(object sender, EventArgs e)
         {
+
+            // FOW
+            if (helper.ReadMemory<Byte>(baseAddrFOW).ToString() == "0")
+            {
+                label4.Text = "Off";
+            }
+            else if (helper.ReadMemory<Byte>(baseAddrFOW).ToString() == "1")
+            {
+                label4.Text = "On";
+            }
+
+            // Allow Traits
+            if (helper.ReadMemory<Byte>(baseAddrAT).ToString() == "0")
+            {
+                label5.Text = "Off";
+            }
+            else if (helper.ReadMemory<Byte>(baseAddrAT).ToString() == "1")
+            {
+                label5.Text = "On";
+            }
+
+            // Debug
+            if (helper.ReadMemory<Byte>(baseAddrDBG).ToString() == "0")
+            {
+                label6.Text = "Off";
+            }
+            else if (helper.ReadMemory<Byte>(baseAddrDBG).ToString() == "1")
+            {
+                label6.Text = "On";
+            }
+
             label1.Text = helper.ReadMemory<Int32>(targetAddrTS).ToString();
-            label4.Text = helper.ReadMemory<Byte>(baseAddrFOW).ToString();
-            label5.Text = helper.ReadMemory<Byte>(baseAddrAT).ToString();
-            label6.Text = helper.ReadMemory<Byte>(baseAddrDBG).ToString();
+
+            //1 and 0 instead of on and off
+            //label4.Text = helper.ReadMemory<Byte>(baseAddrFOW).ToString();
+            //label5.Text = helper.ReadMemory<Byte>(baseAddrAT).ToString();
+            //label6.Text = helper.ReadMemory<Byte>(baseAddrDBG).ToString();
+
+            label11.Text = helper.ReadMemory<Byte>(StartGame).ToString();
 
 
         }
@@ -107,6 +149,12 @@ namespace Testicles
         private void button5_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrAT, Byte.Parse("1"));
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            //DO NOT USE THIS!
+            helper.WriteMemory<Byte>(StartGame, Byte.Parse("40"));
         }
 
         private void button3_Click(object sender, EventArgs e)
