@@ -51,17 +51,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label112 = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DimGray;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(127, 73);
+            this.button1.Location = new System.Drawing.Point(129, 116);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 48);
             this.button1.TabIndex = 0;
@@ -72,7 +71,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(15, 79);
+            this.textBox1.Location = new System.Drawing.Point(17, 122);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 30);
             this.textBox1.TabIndex = 1;
@@ -81,7 +80,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(209, 34);
+            this.label1.Location = new System.Drawing.Point(211, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 25);
             this.label1.TabIndex = 2;
@@ -95,7 +94,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(7, 34);
+            this.label2.Location = new System.Drawing.Point(9, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(181, 25);
             this.label2.TabIndex = 3;
@@ -105,7 +104,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(7, 9);
+            this.label3.Location = new System.Drawing.Point(9, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(503, 25);
             this.label3.TabIndex = 4;
@@ -247,76 +246,67 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label10.Location = new System.Drawing.Point(423, 50);
+            this.label10.Location = new System.Drawing.Point(27, 533);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(337, 100);
+            this.label10.Size = new System.Drawing.Size(161, 25);
             this.label10.TabIndex = 18;
-            this.label10.Text = "This menu was made by AdamDX\r\nIt automatically attaches to your game\r\nso have it " +
-    "open!\r\nVisit the link below for my yt!";
+            this.label10.Text = "Author: AdamDX";
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.linkLabel1.Location = new System.Drawing.Point(477, 150);
+            this.linkLabel1.Location = new System.Drawing.Point(439, 512);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(168, 46);
+            this.linkLabel1.Size = new System.Drawing.Size(157, 46);
             this.linkLabel1.TabIndex = 19;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Youtube";
+            this.linkLabel1.Text = "Discord";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // label11
+            // label14
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label11.Location = new System.Drawing.Point(340, 315);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(111, 25);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Start Game";
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label14.Location = new System.Drawing.Point(23, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(99, 25);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "TestLabel";
             // 
-            // button8
+            // label112
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button8.Location = new System.Drawing.Point(345, 346);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 43);
-            this.button8.TabIndex = 21;
-            this.button8.Text = "Start";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.label112.AutoSize = true;
+            this.label112.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label112.Location = new System.Drawing.Point(369, 213);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(363, 250);
+            this.label112.TabIndex = 25;
+            this.label112.Text = "Special Thanks:\r\n\r\nThembo: Helping me find startgame func\r\n\r\nMastoid: What all th" +
+    "is is based on\r\n(making the holy mary cheats)\r\n\r\nkilla: emotional support\r\n\r\nput" +
+    "inator: tester";
             // 
-            // label12
+            // linkLabel2
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.8F);
-            this.label12.Location = new System.Drawing.Point(325, 217);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(435, 32);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Debug Testing Tools. DONT USE";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label13.Location = new System.Drawing.Point(399, 254);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(291, 50);
-            this.label13.TabIndex = 23;
-            this.label13.Text = "Using these tools may not work. \r\nMay crash program/game";
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.linkLabel2.Location = new System.Drawing.Point(231, 512);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(168, 46);
+            this.linkLabel2.TabIndex = 26;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Youtube";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(800, 567);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.label112);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);
@@ -336,7 +326,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.ForeColor = System.Drawing.Color.Lime;
+            this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "AdamHook";
@@ -369,10 +359,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label112;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }
 

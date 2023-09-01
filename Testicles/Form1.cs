@@ -34,8 +34,12 @@ namespace Testicles
         private void Form1_Load(object sender, EventArgs e)
         {
             Process p = Process.GetProcessesByName("hoi4").FirstOrDefault();
-            if (p == null) return;
-
+            if (p == null)
+            {
+                label14.Text = "Hoi4 Not Connected: Restart";
+                return;
+            }
+            label14.Text = "Hoi4 Connected";
             helper = new MemoryHelper64(p);
             
 
@@ -114,7 +118,7 @@ namespace Testicles
             //label5.Text = helper.ReadMemory<Byte>(baseAddrAT).ToString();
             //label6.Text = helper.ReadMemory<Byte>(baseAddrDBG).ToString();
 
-            label11.Text = helper.ReadMemory<Byte>(StartGame).ToString();
+            //label11.Text = helper.ReadMemory<Byte>(StartGame).ToString();
 
 
         }
@@ -157,15 +161,38 @@ namespace Testicles
             helper.WriteMemory<Byte>(StartGame, Byte.Parse("40"));
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://discord.com/invite/wtBS8Dbp7X");
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrFOW, Byte.Parse("1"));
         } 
 
         //Youtube Link
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://www.youtube.com/@AdamDX1337");
         }
     }
 }
+
+
+
+
+
+
+
+
+// Evil Adam Notes to add more space or something //
+
+/* 
+I think I am going to try to learn how to sigscan, I will probably have to learn a bunch more but my main goal is to somehow get a start game function.
+That would singlehandedly change everything, a free start game hack??? I only know of one other hack that has it, it costs money and is somehow browser-based.
+Considering the website is called "jewishtricks" I probably wouldn't trust it. Well Anyways, off 2 learn ( thisll take awhile :[ )
+
+
+ 
+ */
