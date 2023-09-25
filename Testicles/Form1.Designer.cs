@@ -278,13 +278,11 @@
             // 
             this.label112.AutoSize = true;
             this.label112.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label112.Location = new System.Drawing.Point(369, 213);
+            this.label112.Location = new System.Drawing.Point(399, 179);
             this.label112.Name = "label112";
-            this.label112.Size = new System.Drawing.Size(363, 250);
+            this.label112.Size = new System.Drawing.Size(363, 300);
             this.label112.TabIndex = 25;
-            this.label112.Text = "Special Thanks:\r\n\r\nThembo: Helping me find startgame func\r\n\r\nMastoid: What all th" +
-    "is is based on\r\n(making the holy mary cheats)\r\n\r\nkilla: emotional support\r\n\r\nput" +
-    "inator: tester";
+            this.label112.Text = resources.GetString("label112.Text");
             // 
             // linkLabel2
             // 

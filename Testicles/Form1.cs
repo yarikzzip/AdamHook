@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Memory.Win64;
 using Memory.Utils;
-using System.Security.Permissions;
-using System.Runtime.InteropServices;
+using System.IO;
+using System.Net.NetworkInformation;
+using static Testicles.ConsoleH;
+using System.Windows.Forms.VisualStyles;
 
 namespace Testicles
 {
@@ -26,23 +22,37 @@ namespace Testicles
         ulong targetAddrTS;
         ulong baseAddrFOW, baseAddrDBG, baseAddrAT;
         ulong StartGame;
+        int i = 0;
         MemoryHelper64 helper;
+        
 
 
 
-       
+
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Ping ping = new Ping();
+            ConsoleHelper.AllocConsole();
+            Console.SetOut(new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true });
+            Console.WriteLine("[AdamHook DEBUG] Loaded");
+
+
+
+
+
             Process p = Process.GetProcessesByName("hoi4").FirstOrDefault();
             if (p == null)
             {
                 label14.Text = "Hoi4 Not Connected: Restart";
+                Console.WriteLine("[AdamHook DEBUG] CANNOT CONNECT TO HOI4. RESTART PROGRAM");
                 return;
+
             }
             label14.Text = "Hoi4 Connected";
+            Console.WriteLine("[AdamHook DEBUG] HOI4 CONNECTED.");
             helper = new MemoryHelper64(p);
-            
-
 
             
 
@@ -80,7 +90,10 @@ namespace Testicles
         //Refresh to see new memory value
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-
+            i++;
+            if(i == 100)
+            { Console.WriteLine("[AdamHook DEBUG] LOOP x100"); i = 0; }
+            
             // FOW
             if (helper.ReadMemory<Byte>(baseAddrFOW).ToString() == "0")
             {
@@ -127,25 +140,31 @@ namespace Testicles
         private void button1_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Int32>(targetAddrTS, Int32.Parse(textBox1.Text));
+            Console.WriteLine("[AdamHook DEBUG] 0x25E9D00 4Byte (INT32) + Offset 0xE40 | 4Byte Value set to " + textBox1.Text);
         }  
         private void button7_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrDBG, Byte.Parse("1"));
+            Console.WriteLine("[AdamHook DEBUG] 0x25E9829 | Byte Value set to 1 ");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrFOW, Byte.Parse("0"));
+            Console.WriteLine("[AdamHook DEBUG] 0x24C945A | Byte Value set to 0 ");
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrAT, Byte.Parse("0"));
+            Console.WriteLine("[AdamHook DEBUG] 0x24C9438 | Byte Value set to 0 ");
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrDBG, Byte.Parse("0"));
+            Console.WriteLine("[AdamHook DEBUG] 0x25E9829 | Byte Value set to 0 ");
         }
 
        
@@ -153,6 +172,7 @@ namespace Testicles
         private void button5_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrAT, Byte.Parse("1"));
+            Console.WriteLine("[AdamHook DEBUG] 0x24C9438 | Byte Value set to 1 ");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -169,6 +189,7 @@ namespace Testicles
         private void button3_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrFOW, Byte.Parse("1"));
+            Console.WriteLine("[AdamHook DEBUG] 0x24C945A | Byte Value set to 1 ");
         } 
 
         //Youtube Link
