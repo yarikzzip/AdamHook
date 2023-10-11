@@ -59,8 +59,8 @@ namespace Testicles
             // getting addresses for FOW(0x24C945A), tagswitch TS(0x25E9D00) (0xE40), debug DBG(0x25E9829) and allowtraits AT(0x24C9438)
 
             //Tag Switch
-            ulong baseAddrTS = helper.GetBaseAddress(0x25E9D00);
-            int[] offsetTS = { 0xE40 };
+            ulong baseAddrTS = helper.GetBaseAddress(0x2C68CA8);
+            int[] offsetTS = { 0x4A0 };
             targetAddrTS = MemoryUtils.OffsetCalculator(helper, baseAddrTS, offsetTS);
 
 
@@ -68,13 +68,13 @@ namespace Testicles
             //Also Only Tagswitch is 4bytes, everything else is a byte
 
             //FOW
-            baseAddrFOW = helper.GetBaseAddress(0x24C945A);
+            baseAddrFOW = helper.GetBaseAddress(0x2A8DDCA);
 
             //AllowTraits
-            baseAddrAT = helper.GetBaseAddress(0x24C9438);
+            baseAddrAT = helper.GetBaseAddress(0x2A8DDA8);
 
             //Debug
-            baseAddrDBG = helper.GetBaseAddress(0x25E9829);
+            baseAddrDBG = helper.GetBaseAddress(0x2C6878C);
 
 
             //Pain. Memory address is for 1.10.8, Figuring out 1.12 still :(
@@ -140,31 +140,31 @@ namespace Testicles
         private void button1_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Int32>(targetAddrTS, Int32.Parse(textBox1.Text));
-            Console.WriteLine("[AdamHook DEBUG] 0x25E9D00 4Byte (INT32) + Offset 0xE40 | 4Byte Value set to " + textBox1.Text);
+            Console.WriteLine("[AdamHook DEBUG] 0x2C68CA8 4Byte (INT32) + Offset 0x4A0 | 4Byte Value set to " + textBox1.Text);
         }  
         private void button7_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrDBG, Byte.Parse("1"));
-            Console.WriteLine("[AdamHook DEBUG] 0x25E9829 | Byte Value set to 1 ");
+            Console.WriteLine("[AdamHook DEBUG] 0x2C6878C | Byte Value set to 1 ");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrFOW, Byte.Parse("0"));
-            Console.WriteLine("[AdamHook DEBUG] 0x24C945A | Byte Value set to 0 ");
+            Console.WriteLine("[AdamHook DEBUG] 0x2A8DDCA | Byte Value set to 0 ");
             
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrAT, Byte.Parse("0"));
-            Console.WriteLine("[AdamHook DEBUG] 0x24C9438 | Byte Value set to 0 ");
+            Console.WriteLine("[AdamHook DEBUG] 0x2A8DDA8 | Byte Value set to 0 ");
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrDBG, Byte.Parse("0"));
-            Console.WriteLine("[AdamHook DEBUG] 0x25E9829 | Byte Value set to 0 ");
+            Console.WriteLine("[AdamHook DEBUG] 0x2C6878C | Byte Value set to 0 ");
         }
 
        
@@ -172,7 +172,7 @@ namespace Testicles
         private void button5_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrAT, Byte.Parse("1"));
-            Console.WriteLine("[AdamHook DEBUG] 0x24C9438 | Byte Value set to 1 ");
+            Console.WriteLine("[AdamHook DEBUG] 0x2A8DDA8 | Byte Value set to 1 ");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -189,7 +189,7 @@ namespace Testicles
         private void button3_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrFOW, Byte.Parse("1"));
-            Console.WriteLine("[AdamHook DEBUG] 0x24C945A | Byte Value set to 1 ");
+            Console.WriteLine("[AdamHook DEBUG] 0x2A8DDCA | Byte Value set to 1 ");
         } 
 
         //Youtube Link
