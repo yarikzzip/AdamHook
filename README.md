@@ -1,4 +1,9 @@
 # AdamHook
+
+## Version Compatible
+Currently 1.13.2
+
+## Info
 HOI4 Cheat Menu
 
 Make sure hoi4 is running before you open it.
