@@ -1,7 +1,7 @@
 # AdamHook
 
 ## Version Compatible
-Currently 1.13.2
+Currently 1.13.3
 
 ## Info
 HOI4 Cheat Menu
