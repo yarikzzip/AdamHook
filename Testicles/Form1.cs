@@ -59,7 +59,7 @@ namespace Testicles
             // getting addresses for FOW(0x24C945A), tagswitch TS(0x25E9D00) (0xE40), debug DBG(0x25E9829) and allowtraits AT(0x24C9438)
 
             //Tag Switch
-            ulong baseAddrTS = helper.GetBaseAddress(0x2C68CA8);
+            ulong baseAddrTS = helper.GetBaseAddress(0x2C68C98); // 1.13.2 0x2C68CA8 literally moved one byte??
             int[] offsetTS = { 0x4A0 };
             targetAddrTS = MemoryUtils.OffsetCalculator(helper, baseAddrTS, offsetTS);
 
@@ -74,10 +74,10 @@ namespace Testicles
             baseAddrAT = helper.GetBaseAddress(0x2A8DDA8);
 
             //Debug
-            baseAddrDBG = helper.GetBaseAddress(0x2C6878C);
+            baseAddrDBG = helper.GetBaseAddress(0x2C6877C); //1.13.2 0x2C6878C lol wtf??
 
 
-            //Pain. Memory address is for 1.10.8, Figuring out 1.12 still :(
+            //Pain. Memory address is for 1.10.8, Figuring out 1.13 still :(
             //StartGame = helper.GetBaseAddress(0xEBD230);
 
 
