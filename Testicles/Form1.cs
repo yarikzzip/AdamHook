@@ -52,14 +52,15 @@ namespace Testicles
             }
             label14.Text = "Hoi4 Connected";
             Console.WriteLine("[AdamHook DEBUG] HOI4 CONNECTED.");
+            Console.WriteLine("[AdamHook DEBUG] Updated for version 1.13.4");
             helper = new MemoryHelper64(p);
 
             
 
-            // getting addresses for FOW(0x24C945A), tagswitch TS(0x25E9D00) (0xE40), debug DBG(0x25E9829) and allowtraits AT(0x24C9438)
+            
 
             //Tag Switch
-            ulong baseAddrTS = helper.GetBaseAddress(0x2C68C98); // 1.13.2 0x2C68CA8 literally moved one byte??
+            ulong baseAddrTS = helper.GetBaseAddress(0x2C71168); 
             int[] offsetTS = { 0x4A0 };
             targetAddrTS = MemoryUtils.OffsetCalculator(helper, baseAddrTS, offsetTS);
 
@@ -68,13 +69,13 @@ namespace Testicles
             //Also Only Tagswitch is 4bytes, everything else is a byte
 
             //FOW
-            baseAddrFOW = helper.GetBaseAddress(0x2A8DDCA);
+            baseAddrFOW = helper.GetBaseAddress(0x2A95DCA);
 
             //AllowTraits
-            baseAddrAT = helper.GetBaseAddress(0x2A8DDA8);
+            baseAddrAT = helper.GetBaseAddress(0x2A95DA8);
 
             //Debug
-            baseAddrDBG = helper.GetBaseAddress(0x2C6877C); //1.13.2 0x2C6878C lol wtf??
+            baseAddrDBG = helper.GetBaseAddress(0x2C70C4C); 
 
 
             //Pain. Memory address is for 1.10.8, Figuring out 1.13 still :(
@@ -126,12 +127,7 @@ namespace Testicles
 
             label1.Text = helper.ReadMemory<Int32>(targetAddrTS).ToString();
 
-            //1 and 0 instead of on and off
-            //label4.Text = helper.ReadMemory<Byte>(baseAddrFOW).ToString();
-            //label5.Text = helper.ReadMemory<Byte>(baseAddrAT).ToString();
-            //label6.Text = helper.ReadMemory<Byte>(baseAddrDBG).ToString();
 
-            //label11.Text = helper.ReadMemory<Byte>(StartGame).ToString();
 
 
         }
@@ -140,31 +136,31 @@ namespace Testicles
         private void button1_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Int32>(targetAddrTS, Int32.Parse(textBox1.Text));
-            Console.WriteLine("[AdamHook DEBUG] 0x2C68CA8 4Byte (INT32) + Offset 0x4A0 | 4Byte Value set to " + textBox1.Text);
+            Console.WriteLine("[AdamHook DEBUG] 0x2C71168 4Byte (INT32) + Offset 0x4A0 | 4Byte Value set to " + textBox1.Text);
         }  
         private void button7_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrDBG, Byte.Parse("1"));
-            Console.WriteLine("[AdamHook DEBUG] 0x2C6878C | Byte Value set to 1 ");
+            Console.WriteLine("[AdamHook DEBUG] 0x2C70C4C | Byte Value set to 1 ");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrFOW, Byte.Parse("0"));
-            Console.WriteLine("[AdamHook DEBUG] 0x2A8DDCA | Byte Value set to 0 ");
+            Console.WriteLine("[AdamHook DEBUG] 0x2A95DCA | Byte Value set to 0 ");
             
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrAT, Byte.Parse("0"));
-            Console.WriteLine("[AdamHook DEBUG] 0x2A8DDA8 | Byte Value set to 0 ");
+            Console.WriteLine("[AdamHook DEBUG] 0x2A95DA8 | Byte Value set to 0 ");
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrDBG, Byte.Parse("0"));
-            Console.WriteLine("[AdamHook DEBUG] 0x2C6878C | Byte Value set to 0 ");
+            Console.WriteLine("[AdamHook DEBUG] 0x2C70C4C | Byte Value set to 0 ");
         }
 
        
@@ -172,7 +168,7 @@ namespace Testicles
         private void button5_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrAT, Byte.Parse("1"));
-            Console.WriteLine("[AdamHook DEBUG] 0x2A8DDA8 | Byte Value set to 1 ");
+            Console.WriteLine("[AdamHook DEBUG] 0x2A95DA8 | Byte Value set to 1 ");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -189,7 +185,7 @@ namespace Testicles
         private void button3_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrFOW, Byte.Parse("1"));
-            Console.WriteLine("[AdamHook DEBUG] 0x2A8DDCA | Byte Value set to 1 ");
+            Console.WriteLine("[AdamHook DEBUG] 0x2A95DCA | Byte Value set to 1 ");
         } 
 
         //Youtube Link
@@ -207,13 +203,4 @@ namespace Testicles
 
 
 
-// Evil Adam Notes to add more space or something //
 
-/* 
-I think I am going to try to learn how to sigscan, I will probably have to learn a bunch more but my main goal is to somehow get a start game function.
-That would singlehandedly change everything, a free start game hack??? I only know of one other hack that has it, it costs money and is somehow browser-based.
-Considering the website is called "jewishtricks" I probably wouldn't trust it. Well Anyways, off 2 learn ( thisll take awhile :[ )
-
-
- 
- */
