@@ -52,8 +52,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label14 = new System.Windows.Forms.Label();
-            this.label112 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -246,7 +250,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label10.Location = new System.Drawing.Point(27, 533);
+            this.label10.Location = new System.Drawing.Point(23, 565);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(161, 25);
             this.label10.TabIndex = 18;
@@ -256,7 +260,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.linkLabel1.Location = new System.Drawing.Point(439, 512);
+            this.linkLabel1.Location = new System.Drawing.Point(446, 544);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(157, 46);
             this.linkLabel1.TabIndex = 19;
@@ -274,22 +278,11 @@
             this.label14.TabIndex = 24;
             this.label14.Text = "TestLabel";
             // 
-            // label112
-            // 
-            this.label112.AutoSize = true;
-            this.label112.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label112.Location = new System.Drawing.Point(399, 179);
-            this.label112.Name = "label112";
-            this.label112.Size = new System.Drawing.Size(363, 175);
-            this.label112.TabIndex = 25;
-            this.label112.Text = "Special Thanks:\r\n\r\nThembo: Helping me find startgame func\r\n\r\nMastoid: What all th" +
-    "is is based on\r\n\r\nkilla: emotional support";
-            // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.linkLabel2.Location = new System.Drawing.Point(231, 512);
+            this.linkLabel2.Location = new System.Drawing.Point(231, 544);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(168, 46);
             this.linkLabel2.TabIndex = 26;
@@ -297,14 +290,73 @@
             this.linkLabel2.Text = "Youtube";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.DimGray;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Location = new System.Drawing.Point(12, 505);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(100, 42);
+            this.button8.TabIndex = 27;
+            this.button8.Text = "On";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click_1);
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.DimGray;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(125, 505);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(100, 42);
+            this.button9.TabIndex = 28;
+            this.button9.Text = "Off";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label11.Location = new System.Drawing.Point(12, 477);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(86, 25);
+            this.label11.TabIndex = 29;
+            this.label11.Text = "Tdebug:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label12.Location = new System.Drawing.Point(104, 477);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(54, 25);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "Error";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label13.Location = new System.Drawing.Point(262, 511);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(371, 25);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "Use Tdebug instead of Debug (If it works)";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(800, 567);
+            this.ClientSize = new System.Drawing.Size(800, 599);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.label112);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label10);
@@ -359,8 +411,12 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label112;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
 

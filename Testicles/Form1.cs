@@ -19,8 +19,8 @@ namespace Testicles
             InitializeComponent();
         }
 
-        ulong targetAddrTS;
-        ulong baseAddrFOW, baseAddrDBG, baseAddrAT;
+        
+        ulong baseAddrFOW, baseAddrDBG, baseAddrAT, targetAddrTS, targetAddrTD;
         ulong StartGame;
         int i = 0;
         MemoryHelper64 helper;
@@ -33,10 +33,10 @@ namespace Testicles
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Ping ping = new Ping();
-            ConsoleHelper.AllocConsole();
-            Console.SetOut(new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true });
-            Console.WriteLine("[AdamHook DEBUG] Loaded");
+
+            //ConsoleHelper.AllocConsole();
+            //Console.SetOut(new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true });
+            //Console.WriteLine("[AdamHook DEBUG] Loaded");
 
 
 
@@ -60,22 +60,26 @@ namespace Testicles
             
 
             //Tag Switch
-            ulong baseAddrTS = helper.GetBaseAddress(0x2C71168); 
+            ulong baseAddrTS = helper.GetBaseAddress(0x2C7B5F0); 
             int[] offsetTS = { 0x4A0 };
             targetAddrTS = MemoryUtils.OffsetCalculator(helper, baseAddrTS, offsetTS);
 
+            //Tdebug
+            ulong baseAddrTD = helper.GetBaseAddress(0x2C7B5E0);
+            int[] offsetTD = { 0x78 };
+            targetAddrTD = MemoryUtils.OffsetCalculator(helper, baseAddrTD, offsetTD);
 
             //These ones only need base address because I got the static address without pointers, only tag switching needs pointers
             //Also Only Tagswitch is 4bytes, everything else is a byte
 
             //FOW
-            baseAddrFOW = helper.GetBaseAddress(0x2A95DCA);
+            baseAddrFOW = helper.GetBaseAddress(0x2A9FDDA);
 
             //AllowTraits
-            baseAddrAT = helper.GetBaseAddress(0x2A95DA8);
+            baseAddrAT = helper.GetBaseAddress(0x2A9FDB8);
 
             //Debug
-            baseAddrDBG = helper.GetBaseAddress(0x2C70C4C); 
+            baseAddrDBG = helper.GetBaseAddress(0x2C7B0CC); 
 
 
             //Pain. Memory address is for 1.10.8, Figuring out 1.13 still :(
@@ -125,6 +129,15 @@ namespace Testicles
                 label6.Text = "On";
             }
 
+            if (helper.ReadMemory<Int32>(targetAddrTD).ToString() == "0")
+            {
+                label12.Text = "Off";
+            }
+            else if (helper.ReadMemory<Int32>(targetAddrTD).ToString() == "1")
+            {
+                label12.Text = "On";
+            }
+
             label1.Text = helper.ReadMemory<Int32>(targetAddrTS).ToString();
 
 
@@ -169,6 +182,23 @@ namespace Testicles
         {
             helper.WriteMemory<Byte>(baseAddrAT, Byte.Parse("1"));
             Console.WriteLine("[AdamHook DEBUG] 0x2A95DA8 | Byte Value set to 1 ");
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            helper.WriteMemory<Int32>(targetAddrTD, Int32.Parse("1"));
+            Console.WriteLine("[AdamHook DEBUG] 0x2C70C4C | Byte Value set to 1 ");
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            helper.WriteMemory<Int32>(targetAddrTD, Int32.Parse("0"));
+            Console.WriteLine("[AdamHook DEBUG] 0x2C70C4C | Byte Value set to 1 ");
         }
 
         private void button8_Click(object sender, EventArgs e)
