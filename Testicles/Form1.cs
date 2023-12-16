@@ -46,13 +46,13 @@ namespace Testicles
 
 
             Process p = Process.GetProcessesByName("hoi4").FirstOrDefault();
-            /*if (p == null)
+            if (p == null)
             {
                 label14.Text = "Hoi4 Not Connected: Restart";
-                Console.WriteLine("[AdamHook DEBUG] CANNOT CONNECT TO HOI4. RESTART PROGRAM");
+                //Console.WriteLine("[AdamHook DEBUG] CANNOT CONNECT TO HOI4. RESTART PROGRAM");
                 return;
 
-            }*/
+            }
             label14.Text = "Hoi4 Connected";
             Console.WriteLine("[AdamHook DEBUG] HOI4 CONNECTED.");
             Console.WriteLine("[AdamHook DEBUG] Updated for version 1.13.4");
