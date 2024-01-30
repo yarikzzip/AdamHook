@@ -88,6 +88,7 @@
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
+            this.button24 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -290,7 +291,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.linkLabel1.Location = new System.Drawing.Point(174, 671);
+            this.linkLabel1.Location = new System.Drawing.Point(183, 671);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(157, 46);
             this.linkLabel1.TabIndex = 19;
@@ -536,6 +537,7 @@
             this.label23.Size = new System.Drawing.Size(152, 25);
             this.label23.TabIndex = 49;
             this.label23.Text = "Instant Training:";
+            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // button16
             // 
@@ -703,12 +705,26 @@
             this.label30.TabIndex = 58;
             this.label30.Text = "Error";
             // 
+            // button24
+            // 
+            this.button24.BackColor = System.Drawing.Color.DimGray;
+            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button24.Location = new System.Drawing.Point(345, 12);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(160, 42);
+            this.button24.TabIndex = 62;
+            this.button24.Text = "Music Toggle";
+            this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(815, 726);
+            this.ClientSize = new System.Drawing.Size(862, 726);
+            this.Controls.Add(this.button24);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.button22);
             this.Controls.Add(this.button23);
@@ -835,6 +851,7 @@
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button button24;
     }
 }
 

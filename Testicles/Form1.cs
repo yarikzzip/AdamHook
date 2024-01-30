@@ -8,15 +8,31 @@ using System.IO;
 using System.Net.NetworkInformation;
 using static Testicles.ConsoleH;
 using System.Windows.Forms.VisualStyles;
+using System.Media;
+using System.Reflection;
 
 namespace Testicles
 {
     public partial class Form1 : Form
     {
-      
+        private SoundPlayer soundPlayer;
+
+        private void LoadEmbeddedAudio(string resourceName)
+        {
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                string fullResourceName = $"{assembly.GetName().Name}.{resourceName}";
+                using (Stream resourceStream = assembly.GetManifestResourceStream(fullResourceName))
+                {
+                        soundPlayer.Stream = resourceStream;
+                        soundPlayer.PlayLooping();
+                }
+            }
+
         public Form1()
         {
             InitializeComponent();
+            soundPlayer = new SoundPlayer();
+            
         }
 
         //mp addresses
@@ -26,6 +42,7 @@ namespace Testicles
         //sp addresses
         ulong baseAddrROC, baseAddrIC, baseAddrNOCB, baseAddrIW, baseAddrIT, baseAddrFA, baseAddrFNC;
         int i = 0;
+        bool music = true;
         MemoryHelper64 helper;
         
 
@@ -50,10 +67,12 @@ namespace Testicles
             {
                 label14.Text = "Hoi4 Not Connected: Restart";
                 //Console.WriteLine("[AdamHook DEBUG] CANNOT CONNECT TO HOI4. RESTART PROGRAM");
+                LoadEmbeddedAudio("heaven.wav");
                 return;
 
             }
             label14.Text = "Hoi4 Connected";
+            LoadEmbeddedAudio("purgatory.wav");
             Console.WriteLine("[AdamHook DEBUG] HOI4 CONNECTED.");
             Console.WriteLine("[AdamHook DEBUG] Updated for version 1.13.4");
             helper = new MemoryHelper64(p);
@@ -330,6 +349,27 @@ namespace Testicles
             helper.WriteMemory<Byte>(baseAddrFNC, Byte.Parse("0"));
         }
 
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+
+            music = !music;
+
+            if (music == true)
+            {
+                soundPlayer.PlayLooping();
+            }
+            else if (music == false)
+            {
+                soundPlayer.Stop();
+            }
+            
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             helper.WriteMemory<Byte>(baseAddrAT, Byte.Parse("0"));
@@ -375,7 +415,7 @@ namespace Testicles
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://discord.com/invite/wtBS8Dbp7X");
+            Process.Start("https://discord.com/invite/tZMQwYdJjq");
         }
 
         private void button3_Click(object sender, EventArgs e)

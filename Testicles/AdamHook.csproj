@@ -106,7 +106,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="heaven.wav" />
     <Content Include="hoi5.ico" />
+    <EmbeddedResource Include="purgatory.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
