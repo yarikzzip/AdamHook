@@ -82,8 +82,8 @@ namespace Testicles
             // works in MP
 
             //Tag Switch
-            ulong baseAddrTS = helper.GetBaseAddress(0x2C87850); 
-            int[] offsetTS = { 0x4A0 };
+            ulong baseAddrTS = helper.GetBaseAddress(0x2C8E0F0); 
+            int[] offsetTS = { 0x4B0 };
             targetAddrTS = MemoryUtils.OffsetCalculator(helper, baseAddrTS, offsetTS);
 
             //Tdebug
@@ -93,13 +93,13 @@ namespace Testicles
 
 
             //FOW
-            baseAddrFOW = helper.GetBaseAddress(0x2AABDDA);
+            baseAddrFOW = helper.GetBaseAddress(0x2AB1DDA);
 
             //AllowTraits
-            baseAddrAT = helper.GetBaseAddress(0x2AABDB8);
+            baseAddrAT = helper.GetBaseAddress(0x2AB1DB8);
 
             //Debug
-            baseAddrDBG = helper.GetBaseAddress(0x2C8732C);
+            baseAddrDBG = helper.GetBaseAddress(0x2C8DBD4);
 
 
 
